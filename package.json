@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "version": "1.0.0",
+  "name": "tlink-function-app",
+  "version": "0.0.0-semantic-release",
   "description": "",
   "scripts": {
     "build": "tsc",
@@ -11,7 +11,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@azure/functions": "^3.0.0",
-    "typescript": "^4.0.0"
+    "@azure/functions": "3.0.0",
+    "@semantic-release/commit-analyzer": "9.0.2",
+    "@semantic-release/github": "8.0.4",
+    "@semantic-release/npm": "9.0.1",
+    "@semantic-release/release-notes-generator": "10.0.3",
+    "semantic-release": "19.0.2",
+    "typescript": "4.6.3"
   }
 }
