@@ -6,6 +6,7 @@ name: Node.js CI
 env:
   AZURE_FUNCTIONAPP_NAME: tlinkFunctionApp    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 on:
   push:
