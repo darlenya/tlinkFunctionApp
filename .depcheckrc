@@ -9,6 +9,5 @@ ignores: [
   "eslint-plugin-node",
   "eslint-plugin-promise",
   "semantic-release",
-  "ts-jest",
-  "tspath"
+  "ts-jest"
 ]
