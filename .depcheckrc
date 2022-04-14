@@ -1,0 +1,14 @@
+ignores: [
+  "@semantic-release/commit-analyzer",
+  "@semantic-release/github",
+  "@semantic-release/npm",
+  "@semantic-release/release-notes-generator",
+  "@types/jest",
+  "@types/node",
+  "eslint-plugin-import",
+  "eslint-plugin-node",
+  "eslint-plugin-promise",
+  "semantic-release",
+  "ts-jest",
+  "tspath"
+]

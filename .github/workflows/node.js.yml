@@ -4,13 +4,13 @@
 name: Node.js CI
 
 env:
-  AZURE_FUNCTIONAPP_NAME: tlinkFunctionApp    # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_NAME: tlinkFunctionApp # set this to your application's name
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: "." # set this to the path to your web app project, defaults to the repository root
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -22,28 +22,27 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build
-    - run: npm test
-    - run: npx semantic-release
-    
-    # Publish artifact
-    - name: Publish artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: buildArtifact
-        path: './'
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npx semantic-release
 
+      # Publish artifact
+      - name: Publish artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: buildArtifact
+          path: "./"
 
   deploy-dev:
     runs-on: ubuntu-latest
-    environment: 'dev'
+    environment: "dev"
     needs: build
 
     steps:
@@ -52,9 +51,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: buildArtifact
-          path: './'
+          path: "./"
 
-      - name: 'Run Azure Functions Action'
+      - name: "Run Azure Functions Action"
         uses: Azure/functions-action@v1
         id: fa
         with:
@@ -64,7 +63,7 @@ jobs:
 
   deploy-uat:
     runs-on: ubuntu-latest
-    environment: 'dev'
+    environment: "dev"
     needs: deploy-dev
 
     steps:
@@ -73,9 +72,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: buildArtifact
-          path: './'
+          path: "./"
 
-      - name: 'Run Azure Functions Action'
+      - name: "Run Azure Functions Action"
         uses: Azure/functions-action@v1
         id: fa
         with:
@@ -85,7 +84,7 @@ jobs:
 
   deploy-prod:
     runs-on: ubuntu-latest
-    environment: 'dev'
+    environment: "dev"
     needs: deploy-uat
 
     steps:
@@ -94,9 +93,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: buildArtifact
-          path: './'
+          path: "./"
 
-      - name: 'Run Azure Functions Action'
+      - name: "Run Azure Functions Action"
         uses: Azure/functions-action@v1
         id: fa
         with:
