@@ -1,0 +1,5 @@
+== Function documentation
+include::echo.adoc[leveloffset+1]
+
+
+include::suggestion.adoc[]

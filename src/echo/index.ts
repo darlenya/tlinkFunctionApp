@@ -1,7 +1,7 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 
 /**
- * This function returns the name given in diffrenet directories in the context object
+ * This function returns the name given in diffrent properties in the context object
  * @param {object} context The context delivered by Azure
  * @param {object} req The HTTP Request Object
  * @return {void}

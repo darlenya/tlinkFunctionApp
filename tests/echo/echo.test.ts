@@ -1,4 +1,4 @@
-import echoService from "./index";
+import echoService from "../../src/echo/index";
 import { Context, HttpRequest } from "@azure/functions";
 
 test("Expect query.name", async () => {

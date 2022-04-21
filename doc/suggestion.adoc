@@ -1,0 +1,21 @@
+== Suggestions for the future
+
+* using semantic Release to build the release numbers
+* using renovate for automatically updating the dependencies
+* using Github Actions for the automation
+* using jsdoc for commnets in the code and comment the code +
+    Use eslint to check the jsdoc
+* using asciidoctor for creating overall Dokumentation
+* use a new folder structure for the function Apps +
+
+    ----
+    <root>
+        |- src    <1>
+        |- tests  <2>
+        |- doc    <3>
+    ----
+    <1> Contains all the functions.
+    <2> Contains the tests for the functions.
+    <3> contains the documentation
+
+* use depcheck for checking for unused dependencies 
